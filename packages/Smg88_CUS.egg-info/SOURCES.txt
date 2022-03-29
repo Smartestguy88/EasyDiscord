@@ -1,0 +1,13 @@
+LICENSE
+README.md
+pyproject.toml
+setup.cfg
+setup.py
+packages/EasyDiscord/EasyDiscord.py
+packages/EasyDiscord/__init__.py
+packages/Smg88CUS/Smartguy88 Commonly Used Stuff.py
+packages/Smg88CUS/__init__.py
+packages/Smg88_CUS.egg-info/PKG-INFO
+packages/Smg88_CUS.egg-info/SOURCES.txt
+packages/Smg88_CUS.egg-info/dependency_links.txt
+packages/Smg88_CUS.egg-info/top_level.txt

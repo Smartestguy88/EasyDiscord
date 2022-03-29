@@ -7,7 +7,7 @@
 # Looking for the github? Here it is: https://github.com/Smartestguy88/EasyDiscord
 
 # Standard functions (import):
-import smartguy88
+import Smartguy88
 
 import logging
 
@@ -25,3 +25,4 @@ class LOG:
 
 from uuid import uuid4
 
+Smartguy88.ass()
