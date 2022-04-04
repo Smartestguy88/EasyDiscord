@@ -45,7 +45,7 @@ logging.FATAL_CRITICAL = 59
 logging.CORRUPTED_CRITICAL = 60
 
 # Which channels should I use?
-logging.NOTSET # for None (sentinal value)
+# logging.NOTSET # for None (sentinal value)
 logging.USER_RAW_DEBUG # for raw debugging
 logging.HELPFUL_DEBUG # for debugging generally
 logging.HELPFUL_INFO # for logging info
@@ -134,23 +134,13 @@ class LOG:
   """
   This class is used to log messages to the console and to the log file.
   How each logging level is dealt with from this class depends on a few factors, which are internally defined from this function
-
+  This class' functions are implementation detail ONLY, and should not be used by the user nor changed :)
   """
-  LOGGING = logging.getLogger(__name__) # Module root logger, see documentation of logging.py
+  logger: logging.Logger = logging.getLogger(__name__) # Module root logger, see documentation of logging.py at https://docs.python.org/3/library/logging.html
 
-  LOGGER = logging.getLogger(f"{__name__}.PrimaryLogger") # Primary logger, handles standard and default logs
-  PANICLOGGER = logging.getLogger(f"{__name__}.PANIC") # Logs to private DM of owner, panic handler
-  ADMINLOGGER = logging.getLogger(f"{__name__}.ADMIN") # Admin logger, handles admin-only logs
-  DEBUGLOGGER = logging.getLogger(f"{__name__}.DEBUG") # Logs to debug channels, specifically a server / DM
-  HARDWARELOGGER = logging.getLogger(f"{__name__}.HARDWARE") # Logs to harddrive, *hard coded*
-
-  def __init__(self):
-    ...
+  
 
 from uuid import uuid4
-
-#Smartguy88.ass()
-
 
 
 
