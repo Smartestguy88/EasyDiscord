@@ -136,9 +136,11 @@ class LOG:
   How each logging level is dealt with from this class depends on a few factors, which are internally defined from this function
   This class' functions are implementation detail ONLY, and should not be used by the user nor changed :)
   """
-  logger: logging.Logger = logging.getLogger(__name__) # Module root logger, see documentation of logging.py at https://docs.python.org/3/library/logging.html
-
-  
+  # Module root logger, see documentation of logging.py at https://docs.python.org/3/library/logging.html
+  _logger: logging.Logger = logging.getLogger(__name__)
+  def _logger_get(self): return self._logger
+  def _logger_set(self): raise 
+  logger = property(_logger_get, _logger_set, _logger_del)
 
 from uuid import uuid4
 
