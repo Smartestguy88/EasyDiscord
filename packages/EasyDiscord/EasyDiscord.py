@@ -1,11 +1,17 @@
 # All scripts by Smartguy88 (Discord Smartguy88#4909, github Smartestguy88)
 # gg gl :)
+# This file is NOT TO BE EDITED!
 
-## If you are looking for a template, you are looking in the right place!
+## *** IF YOU ARE LOOKING FOR A FILE TO EDIT THIS IS NOT IT  ***
+## *** THIS IS AN INTERNAL FILE AND IS IMPLEMENTATION DETAIL ***
+
+## If you are looking for a template, though, you are looking in the right place!
 ## Note this program can only run one bot at a time in the current version
 
 # Looking for the github? Here it is: https://github.com/Smartestguy88/EasyDiscord
 # Looking for installation guide? Here it is: "pip install EasyDiscord" into a python-enabled terminal
+
+from typing import final
 
 # Standard functions (import) from my own package:
 import Smartguy88
@@ -46,6 +52,26 @@ logging.HELPFUL_INFO # for logging info
 logging.HELPFUL_WARNING # for logging warnings
 logging.HELPFUL_ERROR # for logging errors, specifically recoverable errors by reloading or some other specified method
 logging.HELPFUL_CRITICAL # for logging critical, specifically fatal, error
+
+# Logging levels practical documentation
+"""
+Where do my logs go?
+  There are a few places, as listed below with their typically used names:
+
+**Console** (stdout, print, terminal, debug console): This is pretty self explanatory, the environment this program is run in being python always has an stdout and stderr so 'Console' refers to this (stdout)
+**Preset Logs** (/logs/presetlogfile.txt file, or other set place): A preset *hard coded* place to send logs to
+**Private DM** (note: adds to buffer and sends as soon as possible): A private DM to the ***ADMIN*** user, this is useful for debugging and error reporting
+**Online Server Handled Logs** (note: *not* the same as private DM, aka Server Handled Logs, Discord Server Logs e.t.c.): Logs that are sent (buffered technically) to the appropriate discord server depending on the server setup with the bot
+
+NOTSET: Nowhere
+Raw debug channels (< 10): Console only (raw printed)
+Debug channels (10 <= n < 20): Console and preset logs (raw printed)
+Info channels (20 <= n < 30): Console, preset logs, and Server Handled Logs
+Warning channels (30 <= n < 40): Console, preset logs, and special Server Handled Logs
+Error channels (40 <= n < 50): Console, preset logs, special Server Handled Logs and a general notification to the ***STEWARDS*** of the bot
+Critical channels (50 <= n < 59): All of the above AND a private DM to the ***ADMIN*** user and a soft notification to all ajoining servers and channels (if possible)
+FATAL channels (n == 60), note this channel group does not really exist I just sort of defined it, but it is useful for corrupted data that may mean a discord bot dies completely: ALl of the above + a ping to all ajoining servers and channels (if possible) __PLUS a personal DM to me, the creator of this bot, known on discord as Smartguy88#4909__
+"""
 
 # Complete non-user-friendly documentation for logging levels:
 """
@@ -102,10 +128,17 @@ logging.HELPFUL_CRITICAL # for logging critical, specifically fatal, error
   59-59 = Fatal critical
   60-60 = Corrupted critical # Think an impossible result such as corrupted data or a SEU
 """
+
+@final
 class LOG:
+  """
+  This class is used to log messages to the console and to the log file.
+  How each logging level is dealt with from this class depends on a few factors, which are internally defined from this function
+
+  """
   LOGGING = logging.getLogger(__name__) # Module root logger, see documentation of logging.py
 
-  LOGGER = logging.getLogger(f"{__name__}.PrimaryLogger") # Primary logger, handles standard logs
+  LOGGER = logging.getLogger(f"{__name__}.PrimaryLogger") # Primary logger, handles standard and default logs
   PANICLOGGER = logging.getLogger(f"{__name__}.PANIC") # Logs to private DM of owner, panic handler
   ADMINLOGGER = logging.getLogger(f"{__name__}.ADMIN") # Admin logger, handles admin-only logs
   DEBUGLOGGER = logging.getLogger(f"{__name__}.DEBUG") # Logs to debug channels, specifically a server / DM
