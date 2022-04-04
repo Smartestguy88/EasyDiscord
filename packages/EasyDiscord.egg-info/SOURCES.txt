@@ -1,0 +1,11 @@
+LICENSE
+README.md
+pyproject.toml
+setup.cfg
+setup.py
+packages/EasyDiscord/EasyDiscord.py
+packages/EasyDiscord/__init__.py
+packages/EasyDiscord.egg-info/PKG-INFO
+packages/EasyDiscord.egg-info/SOURCES.txt
+packages/EasyDiscord.egg-info/dependency_links.txt
+packages/EasyDiscord.egg-info/top_level.txt
