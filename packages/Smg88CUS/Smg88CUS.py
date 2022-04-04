@@ -36,5 +36,5 @@ class SmgClass(type):
   """
   This class is designed to be used as a meta class
   """
-  def __prepare__(self):
+  def __init__(self):
     
